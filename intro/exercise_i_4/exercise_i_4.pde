@@ -13,7 +13,7 @@ void draw() {
   float numX = randomGaussian();
   float numY = randomGaussian();
   float sdX = 120;
-  float sdY = 40;
+  float sdY = 120;
   pushMatrix();
   //the mean is now the center of the screen, no need to offset the mean
   translate(width/2,height/2);
