@@ -1,9 +1,10 @@
 RandomWalker r;
 
 void setup() {
+  size(395, 832);
+  pixelDensity(displayDensity());
   background(26, 25, 24);
   r = new RandomWalker();
-  size(800, 800);
 }
 
 void draw() {
