@@ -1,7 +1,6 @@
 class RandomWalker {
   PVector position;
   PVector destination;
-  int choice;
   float increment;
   
   RandomWalker() {
