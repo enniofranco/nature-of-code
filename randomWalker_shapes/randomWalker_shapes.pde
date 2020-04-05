@@ -9,4 +9,11 @@ void setup() {
 void draw() {
   r.update();
   r.render();
+  
+  if (keyPressed) {
+    if (key == 's' || key == 'S') {
+      save("image_" + frameCount + ".png");
+    }
+  }
+  
 }

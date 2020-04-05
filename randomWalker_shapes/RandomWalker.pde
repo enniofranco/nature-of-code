@@ -30,7 +30,7 @@ class RandomWalker {
   
   void render() {
     noStroke();
-    fill(230, 202, 48, 20);
+    fill(62, 46, 230, 10);
     ellipse(position.x, position.y, increment, increment);
   }
 }
