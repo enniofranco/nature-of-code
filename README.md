@@ -1,2 +1,3 @@
-# nature-of-code
-Exercises from the video series "The Nature of Code" by by Daniel Shiffman.
+### About
+
+This project is based on the book Nature of Code by Daniel Shiffman.
