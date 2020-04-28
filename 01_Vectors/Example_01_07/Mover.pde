@@ -28,7 +28,7 @@ class Mover {
     if (pos.y > height) {
       pos.y = 0;
     } else if (pos.y < 0) {
-      pos.x = height;
+      pos.y = height;
     }
   }
 }
