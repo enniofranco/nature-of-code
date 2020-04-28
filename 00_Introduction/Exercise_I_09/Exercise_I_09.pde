@@ -6,7 +6,7 @@ float increment = 0.02;
 float zoff = 0.0;
 
 void setup() {
-  size(640,360);
+  size(600,600);
   //noLoop();
 }
 
