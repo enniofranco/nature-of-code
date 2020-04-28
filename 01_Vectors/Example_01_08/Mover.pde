@@ -11,9 +11,8 @@ class Mover {
   
   void move() {
     vel.add(acc);
-    pos.add(vel);
-    
     vel.limit(15);
+    pos.add(vel);
     
     checkEdges();
   }
