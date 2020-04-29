@@ -4,7 +4,6 @@ class Mover {
   PVector acc;
   float xoff;
   float yoff;
-  float perlinAcc;
   float increment;
 
   Mover() {
