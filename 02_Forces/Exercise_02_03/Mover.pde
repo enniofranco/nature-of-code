@@ -45,7 +45,4 @@ class Mover {
     }
   }
   
-  float xPos() {
-    return pos.x;
-  }
 }

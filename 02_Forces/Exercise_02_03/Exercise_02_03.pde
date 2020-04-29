@@ -6,7 +6,7 @@ void setup() {
   size(900, 600);
   pixelDensity(displayDensity());
   for (int i = 0; i < movers.length; i++) {
-    movers[i] = new Mover(2, 150, 50);
+    movers[i] = new Mover(2, 150, 300);
   }
 }
 
@@ -15,8 +15,8 @@ void draw() {
   gravity = new PVector(0, 0.1);
   wind = new PVector(0, 0);
   for (int i = 0; i < movers.length; i++) {
-    if (movers[i].xPos() >= 0 && movers[i].xPos() < 300) {
-      float windStrength = map(movers[i].xPos(), 0, 300, 2, 0);
+    if (movers[i].pos.x >= 0 && movers[i].pos.x < 300) {
+      float windStrength = map(movers[i].pos.x, 0, 300, 0.5, 0);
       wind.set(windStrength, 0);
     }
     movers[i].applyForce(wind);
