@@ -1,3 +1,8 @@
+//Sometimes a couple of movers will go out of sync compared to others.
+//I did some investigation and it seems like they jump a few pixels higher,
+//and this is causing them to go out of sync.
+//I haven't looked into a solution yet.
+
 Mover[] movers = new Mover[20];
 
 void setup() {
