@@ -16,7 +16,7 @@ void draw() {
     float c = 0.05;
     float normal = 1;
     float frictionMag = c * normal;
-    PVector friction = movers[i].vel.get();
+    PVector friction = movers[i].vel.copy();
     friction.mult(-1);
     friction.normalize();
     friction.mult(frictionMag);
