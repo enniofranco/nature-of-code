@@ -13,6 +13,8 @@ void setup() {
 void draw() {
   background(100);
   
+  a.drag();
+  a.hover(mouseX, mouseY);
   a.render();
   
   for (int i = 0; i < movers.length; i++) {
@@ -22,4 +24,12 @@ void draw() {
     movers[i].render();
   }
   
+}
+
+void mousePressed() {
+  a.clicked(mouseX, mouseY);
+}
+
+void mouseReleased() {
+  a.stopDragging();
 }
