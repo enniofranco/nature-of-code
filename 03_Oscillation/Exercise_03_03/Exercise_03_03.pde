@@ -1,24 +1,32 @@
-Mover satan;
+/*
+The current state of the sketch makes it look like it's a car drifting on ice
+Maybe if I add friction, it could make it look better.
+There's no friction so it seems like it makes sense to drift.
+*/
+
+Mover m;
 
 void setup() {
   size(600, 600);
   pixelDensity(displayDensity());
-  satan = new Mover(1);
+  m = new Mover();
 }
 
 void draw() {
+  PVector force = new PVector (cos(m.heading), sin(m.heading));
+  force.mult(0.1);
+  m.applyForce(force);
+  
   background(200);
-  satan.forward();
+  
   if (keyPressed) {
-    if (key == 'l' || key == 'L') {
-      //Turn to the right
-      satan.turnRight();
-      println("right");
-    } else if (key == 'k' || key == 'K') {
-      satan.turnLeft();
-      println("left");
+    if (key == CODED && keyCode == RIGHT) {
+      m.turn(0.04);
+    } else if (key == CODED && keyCode == LEFT) {
+      m.turn(-0.04);
     }
   }
-  satan.update();
-  satan.render();
+  
+  m.update();
+  m.render();
 }
