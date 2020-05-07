@@ -12,6 +12,8 @@ void draw() {
   background(200);
   
   float x = amplitude * cos(TWO_PI * frameCount / period);
+  //Option using map();
+  //float x = map(cos(TWO_PI * frameCount / period), -1, 1, -100, 100);
   
   stroke(100);
   fill(100);
