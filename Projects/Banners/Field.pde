@@ -6,11 +6,11 @@ class Field {
   Banner[] banners;
 
   Field() {
-    densityX = 50;
-    densityY = 50;
+    densityX = 320;
+    densityY = 200;
     int arraySize = int(densityX * densityY);
     banners = new Banner[arraySize];
-    noiseScale = 0.03;
+    noiseScale = 0.04;
   }
 
   void build() {

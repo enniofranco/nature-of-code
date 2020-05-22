@@ -1,7 +1,7 @@
 Field astrid;
 
 void setup() {
-  size(600, 600);
+  size(1440, 900);
   pixelDensity(displayDensity());
   astrid = new Field();
 }
@@ -9,4 +9,8 @@ void setup() {
 void draw() {
   background(200);
   astrid.build();
+}
+
+void keyReleased() {
+  saveFrame("Export/banner-###.png");
 }

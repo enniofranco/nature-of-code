@@ -4,7 +4,7 @@ class Banner {
 
   Banner(float _x, float _y) {
     pos = new PVector(_x, _y);
-    bannerSize = 10;
+    bannerSize = 4;
   }
 
   void render(float _noiseVal) {
