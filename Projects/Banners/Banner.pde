@@ -4,7 +4,7 @@ class Banner {
 
   Banner(float _x, float _y) {
     pos = new PVector(_x, _y);
-    bannerSize = 4;
+    bannerSize = 8;
   }
 
   void render(float _noiseVal) {
@@ -19,7 +19,7 @@ class Banner {
     PVector point4 = new PVector(x, y);
 
     noStroke();
-    fill(100, 100);
+    fill(#780e1e, 100);
     beginShape();
     vertex(point1.x, point1.y);
     vertex(point2.x, point2.y);

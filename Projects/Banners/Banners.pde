@@ -7,7 +7,7 @@ void setup() {
 }
 
 void draw() {
-  background(200);
+  background(#bfbfb3);
   astrid.build();
 }
 
