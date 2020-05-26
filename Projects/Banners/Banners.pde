@@ -7,10 +7,10 @@ void setup() {
 }
 
 void draw() {
-  background(#bfbfb3);
+  background(#ecdfb2);
   astrid.build();
-}
-
-void keyReleased() {
-  saveFrame("Export/banner-###.png");
+  //saveFrame("Export/banner-###.png");
+  //rectMode(CENTER);
+  //fill(#cca773);
+  //rect(width/2, height/2, 400, 400);
 }

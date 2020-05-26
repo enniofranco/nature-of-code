@@ -7,11 +7,13 @@ class Field {
   float zoff;
 
   Field() {
-    densityX = 1440/4;
-    densityY = 900/4;
+    //densityX = 1440/4;
+    //densityY = 900/4;
+    densityX = 1440/9;
+    densityY = 900/9;
     int arraySize = int(densityX * densityY);
     banners = new Banner[arraySize];
-    noiseScale = 0.04;
+    noiseScale = 0.03;
     zoff = 0.0;
   }
 
@@ -29,10 +31,11 @@ class Field {
 
         //In this option, the banners are on the edges of the artboard.
         //It works better than the strange margin of the above
-        banners[x+y*densityX] = new Banner(rowX*x, rowY*y);
+        //banners[x+y*densityX] = new Banner(rowX*x, rowY*y, 6);
+        banners[x+y*densityX] = new Banner(rowX*x, rowY*y, 9);
         banners[x+y*densityX].render(noiseVal);
       }
     }
-    zoff += 0.01;
+    zoff += 0.007;
   }
 }
