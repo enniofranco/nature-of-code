@@ -19,17 +19,20 @@ class Banner {
     PVector point4 = new PVector(x, y);
 
     noStroke();
-    float cRed = map(angle, -PI*2, PI*2, 106, 187);
-    float cGreen = map(angle, -PI*2, PI*2, 133, 166);
-    float cBlue = map(angle, -PI*2, PI*2, 114, 113);
-    
-    float angleAlpha;
+    float cRed;
+    float cGreen;
+    float cBlue;
+
     if (angle > PI/2) {
-      angleAlpha = map(angle, PI/2, PI*2+PI/2, 20, 200);
+      cRed = map(angle, PI/2, PI*2+PI/2, 236, 204);
+      cGreen = map(angle, PI/2, PI*2+PI/2, 223, 167);
+      cBlue = map(angle, PI/2, PI*2+PI/2, 178, 115);
     } else {
-      angleAlpha = map(angle, PI/2, -PI*2+PI/2, 20, 200);
+      cRed = map(angle, PI/2, -PI*2+PI/2, 236, 203);
+      cGreen = map(angle, PI/2, -PI*2+PI/2, 223, 159);
+      cBlue = map(angle, PI/2, -PI*2+PI/2, 178, 130);
     }
-    fill(cRed, cGreen, cBlue, angleAlpha);
+    fill(cRed, cGreen, cBlue, 200);
     beginShape();
     vertex(point1.x, point1.y);
     vertex(point2.x, point2.y);

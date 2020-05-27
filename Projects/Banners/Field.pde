@@ -9,8 +9,8 @@ class Field {
   Field() {
     //densityX = 1440/4;
     //densityY = 900/4;
-    densityX = 1440/9;
-    densityY = 900/9;
+    densityX = screenW/9;
+    densityY = screenH/9;
     int arraySize = int(densityX * densityY);
     banners = new Banner[arraySize];
     noiseScale = 0.03;
@@ -36,6 +36,6 @@ class Field {
         banners[x+y*densityX].render(noiseVal);
       }
     }
-    zoff += 0.007;
+    zoff += 0.01;
   }
 }

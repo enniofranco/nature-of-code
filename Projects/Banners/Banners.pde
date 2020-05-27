@@ -1,8 +1,13 @@
 Field astrid;
+int screenW = 1350/2;
+int screenH = 1350/2;
+
+void settings() {
+  size(screenW, screenH);
+  pixelDensity(displayDensity());
+}
 
 void setup() {
-  size(1440, 900);
-  pixelDensity(displayDensity());
   astrid = new Field();
 }
 
