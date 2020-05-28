@@ -15,7 +15,7 @@ void setup() {
 
 void draw() {
   //background(#8C8C8C);
-  background(#FFFFFF);
+  background(#F5F5EE);
   astrid.build();
   //saveFrame("Export/banner-###.png");
   //rectMode(CENTER);

@@ -13,7 +13,7 @@ class Field {
     densityY = screenH/9;
     int arraySize = int(densityX * densityY);
     banners = new Banner[arraySize];
-    noiseScale = 0.03;
+    noiseScale = 0.02;
     zoff = 0.0;
   }
 
