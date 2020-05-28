@@ -36,6 +36,6 @@ class Field {
         banners[x+y*densityX].render(noiseVal);
       }
     }
-    zoff += 0.01;
+    zoff += 0.003;
   }
 }

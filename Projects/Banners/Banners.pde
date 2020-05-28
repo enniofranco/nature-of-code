@@ -1,6 +1,8 @@
 Field astrid;
-int screenW = 1350/2;
-int screenH = 1350/2;
+//int screenW = 1350/2;
+//int screenH = 1350/2;
+int screenW = 540;
+int screenH = 540;
 
 void settings() {
   size(screenW, screenH);
@@ -12,10 +14,11 @@ void setup() {
 }
 
 void draw() {
-  background(#ecdfb2);
+  //background(#8C8C8C);
+  background(#FFFFFF);
   astrid.build();
   //saveFrame("Export/banner-###.png");
   //rectMode(CENTER);
-  //fill(#cca773);
-  //rect(width/2, height/2, 400, 400);
+  //fill(#2F47EB);
+  //rect(width/2, height/2, width/3, height/3);
 }
