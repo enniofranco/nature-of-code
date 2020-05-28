@@ -20,7 +20,7 @@ class Banner {
   }
 
   void render(float _noiseVal) {
-    //float angle = map(_noiseVal, 0, 1, -PI*2+PI/2, PI*2+PI/2);
+    //float angle = map(_noiseVal, 0, 1, angleMin, angleMax);
     float angle = map(mouseX, 0, width, angleMin, angleMax);
     PVector point1 = new PVector(pos.x, pos.y - bannerSize/2);
     PVector point2 = new PVector(point1.x, point1.y + bannerSize);
