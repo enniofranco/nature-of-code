@@ -24,5 +24,5 @@ void draw() {
   //can result in interesting results
   background(#F5F5EE);
   astrid.build();
-  //saveFrame("Export/banner-###.png");
+  saveFrame("Export/banner-####.png");
 }
