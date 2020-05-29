@@ -1,8 +1,13 @@
+/*
+Within
+*/
+
+//1080 is Instagram's default media size for squares
+//I export the media at displayDensity() which multiplies by 2, thus I get to 1080
+int screenW = 1080/2;
+int screenH = 1080/2;
+
 Field astrid;
-//int screenW = 1350/2;
-//int screenH = 1350/2;
-int screenW = 540;
-int screenH = 540;
 
 void settings() {
   size(screenW, screenH);
@@ -14,11 +19,10 @@ void setup() {
 }
 
 void draw() {
-  //background(#8C8C8C);
+  //Background is the same colour as PVector colourBg within Banner
+  //I preferred not to use the same colour for changing the background
+  //can result in interesting results
   background(#F5F5EE);
   astrid.build();
   //saveFrame("Export/banner-###.png");
-  //rectMode(CENTER);
-  //fill(#2F47EB);
-  //rect(width/2, height/2, width/3, height/3);
 }

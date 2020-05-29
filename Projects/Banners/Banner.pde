@@ -36,7 +36,8 @@ class Banner {
     float _G;
     float _B;
     float _angle;
-    //shorten the range of the angle so colours will change faster
+    
+    //Shorten the range of the angle so colours will change faster
     _angle = constrain(angle, -PI+angleOff, PI+angleOff);
 
     if (_angle > angleOff) {
