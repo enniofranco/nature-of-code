@@ -1,7 +1,3 @@
-/*
-Within
-*/
-
 //1080 is Instagram's default media size for squares
 //I export the media at displayDensity() which multiplies by 2, thus I get to 1080
 int screenW = 1080/2;

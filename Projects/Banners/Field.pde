@@ -1,5 +1,6 @@
 class Field {
   Banner[] banners;
+  //How many on a screen
   int densityX;
   int densityY;
   float noiseVal;
@@ -26,8 +27,7 @@ class Field {
         float rowX = float(width) / (densityX - 1.0);
         float rowY = float(height) / (densityY - 1.0);
         
-        //In this option, the banners are on the edges of the artboard.
-        //It works better than the strange margin of the above
+        //Call Banner (x, y, size)
         banners[x+y*densityX] = new Banner(rowX*x, rowY*y, 9);
         banners[x+y*densityX].render(noiseVal);
       }
