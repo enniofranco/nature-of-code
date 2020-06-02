@@ -24,8 +24,12 @@ void draw() {
   //can result in interesting results
   background(#F5F5EE);
   astrid.build();
-  //timeRec is converted into number of frames
+  
+  //Record all frames
   //saveFrame("Export/banner-####.png");
+  
+  //Record based on time
+  //timeRec is converted into number of frames
   //if(frameCount <= timeRec) {
   //  saveFrame("Export/banner-####.png");
   //}
