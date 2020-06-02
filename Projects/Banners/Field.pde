@@ -13,15 +13,15 @@ class Field {
   Field() {
     //densityX = 3;
     //densityY = 3;
-    densityX = screenW/10;
-    densityY = screenH/10;
+    densityX = 52;
+    densityY = 52;
     int arraySize = int(densityX * densityY);
     banners = new Banner[arraySize];
     noiseScale = 0.02;
     zScale = 0.002;
     zoff = 0.0;
-    border = 60;
-    flagSize = 8;
+    border = 52;
+    flagSize = 9;
   }
 
   void build() {
