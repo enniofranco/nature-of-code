@@ -4,14 +4,15 @@ int screenW = 1080/2;
 int screenH = 1080/2;
 int timeRec = 30; //seconds of recording
 int fps = 30; //frames per second
+boolean isRecording;
 
 Field astrid;
 
 void settings() {
   timeRec = timeRec * fps;
-  println(timeRec);
   size(screenW, screenH);
   pixelDensity(displayDensity());
+  isRecording = false;
 }
 
 void setup() {
@@ -33,10 +34,14 @@ void draw() {
   //if(frameCount <= timeRec) {
   //  saveFrame("Export/banner-####.png");
   //}
+
+  if (isRecording) {
+    saveFrame("Export/banner-####.png");
+  }
 }
 
-//void keyReleased() {
-//  if (key == 'r' || key == 'R') {
-//    saveFrame("Export/banner-####.png");
-//  }
-//}
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    isRecording = !isRecording;
+  }
+}
