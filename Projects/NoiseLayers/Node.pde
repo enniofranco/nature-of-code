@@ -18,7 +18,7 @@ class Node {
     noStroke();
     //fill(100, 100);
     rectMode(CENTER);
-    rect(pos.x, pos.y, 6, 6);
+    rect(pos.x, pos.y, 4, 4);
     //ellipse(pos.x, pos.y, 4, 4);
   }
 }

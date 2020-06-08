@@ -1,7 +1,7 @@
 int screenW = 1080/2;
 int screenH = 1080/2;
 
-NodeMaster taskmaster;
+NodeMaster taskmaster1;
 
 void settings() {
   size(screenW, screenH, FX2D);
@@ -9,10 +9,10 @@ void settings() {
 }
 
 void setup() {
-  taskmaster = new NodeMaster(48, 48, 48, width/2, height/2);
+  taskmaster1 = new NodeMaster(48, 48, 100, width/2, height/2);
 }
 
 void draw() {
   background(#041ce0);
-  taskmaster.update();
+  taskmaster1.update();
 }

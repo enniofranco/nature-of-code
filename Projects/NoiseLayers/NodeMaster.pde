@@ -17,16 +17,17 @@ class NodeMaster {
     noiseNodeOffInc = 0.05;
     zoff = 0;
 
-    //float _x = 0;
-    //float _y = 0;
+    float shapeSizeX = 4*densityX + (densityZ*2);
+    float shapeSizeY = 4*densityY + (densityZ*2);
+    _x = _x - shapeSizeX/2;
+    _y = _y - shapeSizeY/2;
 
     for (int z = 0; z < densityZ; z++) {
       for (int x = 0; x < densityX; x++) {
         for (int y = 0; y < densityY; y++) {
-          float offset = 100;
-          _x = 4*x+(z*2) + offset;
-          _y = 4*y+(z*2) + offset;
-          PVector pos = new PVector(_x, _y);
+          float _nodeX = (4*x+(z*2)) + _x;
+          float _nodeY = (4*y+(z*2)) + _y;
+          PVector pos = new PVector(_nodeX, _nodeY);
           nodes[z][x+y*densityX] = new Node(pos, 40);
         }
       }
