@@ -9,7 +9,7 @@ void settings() {
 }
 
 void setup() {
-  taskmaster1 = new NodeMaster(48, 48, 100, width/2, height/2);
+  taskmaster1 = new NodeMaster(48, 48, 48, width/2, height/2);
 }
 
 void draw() {
