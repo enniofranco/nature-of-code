@@ -1,12 +1,14 @@
 class Node {
   PVector pos;
   PVector fieldOfAction1, fieldOfAction2;
+  float nodeSize;
 
-  Node(PVector _pos, float _fieldOfAction) {
+  Node(PVector _pos, float _fieldOfAction, float _nodeSize) {
     _fieldOfAction = _fieldOfAction / 2;
     pos = _pos.copy();
     fieldOfAction1 = new PVector(pos.x-_fieldOfAction, pos.y-_fieldOfAction);
     fieldOfAction2 = new PVector(pos.x+_fieldOfAction, pos.y+_fieldOfAction);
+    nodeSize = _nodeSize;
   }
 
   void update(float _noiseX, float _noiseY) {
@@ -16,9 +18,8 @@ class Node {
 
   void render() {
     noStroke();
-    //fill(100, 100);
     rectMode(CENTER);
-    //rect(pos.x, pos.y, 4, 4);
-    ellipse(pos.x, pos.y, 4, 4);
+    //rect(pos.x, pos.y, nodeSize, nodeSize);
+    ellipse(pos.x, pos.y, nodeSize, nodeSize);
   }
 }
