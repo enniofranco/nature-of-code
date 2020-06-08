@@ -12,7 +12,7 @@ void settings() {
 
 void setup() {
   //int scale = 4;
-  taskmaster1 = new NodeMaster(24, 72, 44, width/2, height/2);
+  taskmaster1 = new NodeMaster(44, 44, 44, width/2, height/2);
 }
 
 void draw() {
