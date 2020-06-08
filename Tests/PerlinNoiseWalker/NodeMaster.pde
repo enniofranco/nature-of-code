@@ -1,42 +1,57 @@
 class NodeMaster {
-  Node[] nodes;
-  int densityX, densityY;
+  Node[][] nodes;
+  int densityX, densityY, densityZ;
   PVector noiseNodeOff;
   float noiseFieldOff;
   float noiseScale;
   float noiseNodeOffInc;
+  float zoff;
 
   NodeMaster() {
-    densityX = 24;
-    densityY = 24;
+    densityX = 48;
+    densityY = 48;
+    densityZ = 48;
     int arraySize = densityX * densityY;
-    nodes = new Node[arraySize];
-    noiseScale = 0.1;
+    nodes = new Node[densityZ][arraySize];
+    noiseScale = 0.02;
     noiseNodeOffInc = 0.05;
+    zoff = 0;
 
-    for (int x = 0; x < densityX; x++) {
-      for (int y = 0; y < densityY; y++) {
-        float offset = 100;
-        float _x = 6*x + offset;
-        float _y = 6*y + offset;
-        PVector pos = new PVector(_x, _y);
-        nodes[x+y*densityX] = new Node(pos, 100);
+    float _x = 0;
+    float _y = 0;
+
+    for (int z = 0; z < densityZ; z++) {
+      for (int x = 0; x < densityX; x++) {
+        for (int y = 0; y < densityY; y++) {
+          float offset = 100;
+          _x = 4*x+(z*2) + offset;
+          _y = 4*y+(z*2) + offset;
+          PVector pos = new PVector(_x, _y);
+          nodes[z][x+y*densityX] = new Node(pos, 20);
+        }
       }
     }
     noiseNodeOff = new PVector(10, 10000);
   }
 
   void update() {
-    for (int x = 0; x < densityX; x++) {
-      for (int y = 0; y < densityY; y++) {
-        noiseFieldOff = noise(x*noiseScale, y*noiseScale);
-        float fieldOff = map(noiseFieldOff, 0, 1, 0, 0.5);
-        float noiseX = noise(noiseNodeOff.x + fieldOff);
-        float noiseY = noise(noiseNodeOff.y + fieldOff);
-        nodes[x+y*densityX].update(noiseX, noiseY);
-        nodes[x+y*densityX].render();
+    float _zoff = 0;
+    for (int z = 0; z < densityZ; z++) {
+      fill(100 + z * 5);
+
+      for (int x = 0; x < densityX; x++) {
+        for (int y = 0; y < densityY; y++) {
+          noiseFieldOff = noise(x*noiseScale, y*noiseScale, zoff + _zoff);
+          float fieldOff = map(noiseFieldOff, 0, 1, 0, 0.5);
+          float noiseX = noise(noiseNodeOff.x + fieldOff);
+          float noiseY = noise(noiseNodeOff.y + fieldOff);
+          nodes[z][x+y*densityX].update(noiseX, noiseY);
+          nodes[z][x+y*densityX].render();
+        }
       }
+      _zoff += 0.2;
     }
-    noiseNodeOff.add(0.01, 0.01);
+    noiseNodeOff.add(0.001, 0.001);
+    zoff += 0.05;
   }
 }
