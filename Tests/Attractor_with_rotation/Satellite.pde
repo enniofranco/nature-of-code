@@ -30,6 +30,17 @@ class Satellite {
 
   void render() {
     noStroke();
+    float dirAngle = vel.heading();
+    pushMatrix();
+    translate(pos.x, pos.y);
+    rotate(dirAngle);
+    beginShape();
+    vertex(mass * 12, -mass * 3);
+    vertex(mass * 15, 0);
+    vertex(mass * 12, mass * 3);
+    endShape(CLOSE);
+    popMatrix();
+    
     pushMatrix();
     translate(pos.x, pos.y);
     rotate(angle);
