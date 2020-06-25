@@ -37,8 +37,6 @@ class Satellite {
     arc(0, 0, 16*mass, 16*mass, angle, angle+PI, OPEN);
     fill(0, 180);
     arc(0, 0, 16*mass, 16*mass, angle+PI, angle+TWO_PI, OPEN);
-    //rectMode(CENTER);
-    //rect(0, 0, 16*mass, 16*mass);
     popMatrix();
   }
 
