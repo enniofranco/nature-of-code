@@ -10,7 +10,8 @@ class Oscillator {
   Oscillator(float _x, float _y) {
     anchor = new PVector(_x, _y);
     angle = new PVector();
-    vel = new PVector(random(-0.05, 0.05), random(-0.05, 0.05));
+    //vel = new PVector(random(-0.05, 0.05), random(-0.05, 0.05));
+    vel = new PVector(0, 0);
     acc = new PVector();
     amplitude = new PVector(random(200), random(200));
     pos = new PVector();
