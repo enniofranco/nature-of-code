@@ -13,7 +13,7 @@ Field astrid;
 void settings() {
   fullScreen();
   timeRec = timeRec * fps;
-  size(screenW, screenH);
+  size(screenW, screenH, FX2D);
   pixelDensity(displayDensity());
   isRecording = false;
 }
