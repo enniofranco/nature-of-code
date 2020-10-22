@@ -1,5 +1,3 @@
-//It's working but the noise is ugly and it's not moving the way I want
-
 int screenW = 1080/2;
 int screenH = 1080/2;
 
@@ -20,7 +18,7 @@ void setup() {
 }
 
 void draw() {
-  background(255, 100, 10);
+  background(255, 239, 10);
   stroke(26, 26, 26, 50);
   noFill();
   ringSystem.render();
