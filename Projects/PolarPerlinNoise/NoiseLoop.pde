@@ -10,7 +10,6 @@ class NoiseLoop {
     float xoff = map(cos(_angle), -1, 1, 0, 2.3);
     float yoff = map(sin(_angle), -1, 1, 0, 2.3);
     float radius = (float) oSnoise.eval(xoff, yoff, _zDimension, _fourthDimension);
-    //float radius = map(n, -1, 1, 10, 180);
 
     return radius;
   }

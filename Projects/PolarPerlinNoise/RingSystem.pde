@@ -27,11 +27,11 @@ class RingSystem {
   }
 
   void render() {
-    float zTemp = zDimension;
+    //float zTemp = zDimension;
     for (int j = 0; j < rings; j++) {
       beginShape();
       for (int i = 0; i < stepsPerRing; i++) {
-        float n = noiseLoop.value(angle, zTemp, fourthDimension);
+        float n = noiseLoop.value(angle, zDimension, fourthDimension);
         radius = map(n, -1, 1, min, max);
         radius += j*0.9;
         float x = radius * cos(angle) + iniX;
@@ -41,10 +41,9 @@ class RingSystem {
       }
       endShape(CLOSE);
       angle = 0;
-      zTemp += 0.03;
+      zDimension += 0.03;
     }
-    //zDimension += 0.03;
-    //zDimension = 0;
+    zDimension = 0;
     fourthDimension += 0.1;
   }
 }
