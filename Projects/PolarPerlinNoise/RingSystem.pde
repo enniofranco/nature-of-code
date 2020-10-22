@@ -28,8 +28,6 @@ class RingSystem {
 
   void render() {
     float zTemp = zDimension;
-    stroke(0, 50);
-    noFill();
     for (int j = 0; j < rings; j++) {
       beginShape();
       for (int i = 0; i < stepsPerRing; i++) {
@@ -45,7 +43,8 @@ class RingSystem {
       angle = 0;
       zTemp += 0.03;
     }
-    zDimension += 0.03;
-    fourthDimension += 0.01;
+    //zDimension += 0.03;
+    //zDimension = 0;
+    fourthDimension += 0.1;
   }
 }
