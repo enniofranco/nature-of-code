@@ -1,10 +1,3 @@
-/*
-Perlin Noise has only 3 dimensions
-I should try openSimplex noise
-
-The shape doesn't close correctly
-*/
-
 int screenW = 1080/2;
 int screenH = 1080/2;
 float radius;
@@ -13,23 +6,21 @@ float noiseRadius;
 float noiseZ;
 
 void settings() {
-  //size(screenW, screenH, FX2D);
-  size(screenW, screenH);
+  size(screenW, screenH, FX2D);
+  //size(screenW, screenH);
   pixelDensity(displayDensity());
 }
 
 void setup() {
-  noiseInc = PI/30;
+  noiseInc = PI/50;
   noiseZ = 0;
 }
 
 void draw() {
-  background(200);
-  noiseRadius = 1;
-  //noStroke();
-  //fill(100, 10);
-  stroke(0,90);
+  background(255, 239, 10);
+  stroke(26, 26, 26, 50);
   noFill();
+  noiseRadius = 1;
   for (float j = 0; j < 120; j++) {
     beginShape();
     for (float i = 0; i < TWO_PI; i += noiseInc) {
@@ -41,7 +32,7 @@ void draw() {
       float y = radius * sin(i) + height/2;
       vertex(x, y);
     }
-    endShape();
+    endShape(CLOSE);
     noiseZ += 0.01;
   }
   noiseZ = 0;
