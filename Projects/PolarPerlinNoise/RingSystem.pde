@@ -26,7 +26,7 @@ class RingSystem {
     fourthDimension = 0;
   }
 
-  void render() {
+  void render(float _percent) {
     //float zTemp = zDimension;
     for (int j = 0; j < rings; j++) {
       beginShape();
