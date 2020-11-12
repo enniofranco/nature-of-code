@@ -4,6 +4,9 @@
 
 int screenW = 1080/2;
 int screenH = 1080/2;
+
+boolean isRecording;
+
 float ringSegments;
 float ringMax;
 float radius;
@@ -19,10 +22,12 @@ void settings() {
 
 void setup() {
   ringSegments = 70;
-  ringMax = 100;
+  ringMax = 80;
   angle = 0;
   noiseRadius = 1;
   zoff = 0;
+  
+  isRecording = false;
 }
 
 void draw() {
@@ -49,5 +54,14 @@ void draw() {
   }
   noiseRadius = 1;
   zoff += 0.01;
-  //noLoop();
+  
+  if (isRecording) {
+    saveFrame("Export/rings-####.png");
+  }
+}
+
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    isRecording = !isRecording;
+  }
 }
