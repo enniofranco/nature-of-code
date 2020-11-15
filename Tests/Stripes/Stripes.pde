@@ -1,8 +1,8 @@
 //Still doesn't feel like it's rotating
 //But it is a working version
 
-float sectionWidth;
-float sectionWidthRange;
+float angle;
+float sectionMaxWidth;
 float time;
 float sectionHeight;
 float columnQuantity;
@@ -18,7 +18,7 @@ void setup() {
   //time = 1000;
   columnQuantity = 100;
   sectionHeight = height/columnQuantity;
-  sectionWidthRange = 500;
+  sectionMaxWidth = 300;
   yOff = 0;
 }
 
@@ -30,24 +30,14 @@ void draw() {
 
   for (int i = 0; i < columnQuantity; i++) {
     float n = noise(time, yOff);
-    sectionWidth = map(n, 0, 1, -sectionWidthRange, sectionWidthRange);
+    angle = map(n, 0, 1, 0, TWO_PI);
+    //println(angle);
 
-    if (n < 0.5) {
-      colour1a = color(0, 184, 31); 
-      colour1b = color(4, 28, 224);
-    } else {
-      colour1a = color(140, 140, 140); 
-      colour1b = color(26, 26, 26);
-    }
+    stripe = new Stripe(width/2, y, sectionMaxWidth, sectionHeight, angle);
 
-    //rectMode(CENTER);
-    //rect(width/2, y+sectionHeight/2, sectionWidth, sectionHeight);
-    stripe = new Stripe(width/2, y, sectionWidth, sectionHeight, colour1a, colour1b);
-
-
-    time += 0.01;
+    time += 0.012;
     y += sectionHeight;
   }
 
-  yOff += 0.001;
+  yOff += 0.0008;
 }
