@@ -15,9 +15,14 @@ color colour1a, colour1b;
 
 Stripe stripe;
 
+void settigns() {
+  size(screenW, screenH, FX2D);
+  pixelDensity(displayDensity());
+  isRecording = false;
+}
 
 void setup() {
-  size(600, 600, FX2D);
+  //size(600, 600, FX2D);
   //time = 1000;
   columnQuantity = 100;
   sectionHeight = height/columnQuantity;
