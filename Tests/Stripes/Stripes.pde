@@ -15,7 +15,7 @@ color colour1a, colour1b;
 
 Stripe stripe;
 
-void settigns() {
+void settings() {
   size(screenW, screenH, FX2D);
   pixelDensity(displayDensity());
   isRecording = false;
