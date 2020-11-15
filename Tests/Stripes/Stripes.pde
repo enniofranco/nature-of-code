@@ -1,5 +1,8 @@
 //Still doesn't feel like it's rotating
 //But it is a working version
+int screenW = 1080/2;
+int screenH = 1080/2;
+boolean isRecording;
 
 float angle;
 float sectionMaxWidth;
@@ -31,7 +34,6 @@ void draw() {
   for (int i = 0; i < columnQuantity; i++) {
     float n = noise(time, yOff);
     angle = map(n, 0, 1, 0, TWO_PI);
-    //println(angle);
 
     stripe = new Stripe(width/2, y, sectionMaxWidth, sectionHeight, angle);
 
@@ -40,4 +42,14 @@ void draw() {
   }
 
   yOff += 0.0008;
+
+  if (isRecording) {
+    saveFrame("Export/stripe-####.png");
+  }
+}
+
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    isRecording = !isRecording;
+  }
 }
