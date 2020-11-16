@@ -1,16 +1,18 @@
-//I have abandoned this project
-//I've overcomplicated and have not reached my goal
-//This was meant to be animated
-//I used a test file I worked on before as my final project
+//In this version I'm using the radius on the 2D NOISE space
+//I shrink the radius therefore I use less noise dimensions
+//The animation is not in loop yet
 
 int screenW = 1080/2;
 int screenH = 1080/2;
 
-int totalFrames = 100;
-int counter = 0;
-boolean record = false;
+boolean isRecording;
 
-RingSystem ringSystem;
+float ringSegments;
+float ringMax;
+float radius;
+float angle;
+float noiseRadius;
+float zoff;
 
 void settings() {
   size(screenW, screenH, FX2D);
@@ -18,38 +20,48 @@ void settings() {
   pixelDensity(displayDensity());
 }
 
-
 void setup() {
-  //1. x      //2. y
-  //3. min    //4. max
-  //5. rings  //6. steps in each circle 
-  ringSystem = new RingSystem(width/2, height/2, 10, 100, 150, 90);
+  ringSegments = 70;
+  ringMax = 80;
+  angle = 0;
+  noiseRadius = 1;
+  zoff = 0;
+  
+  isRecording = false;
 }
 
 void draw() {
   background(255, 239, 10);
   stroke(26, 26, 26, 50);
   noFill();
-  float percent = 0;
-  if (record) {
-    percent = float(counter) / totalFrames;
-  } else {
-    percent = float(counter % totalFrames) / totalFrames;
-  }
-  ringSystem.render(percent);
-  if (record) {
-    saveFrame("output/gif-"+nf(counter, 3)+".png");
-    if (counter == totalFrames-1) {
-      exit();
+  for (float j = 0; j < ringMax; j++) {
+    beginShape();
+    for (float i = 0; i < ringSegments; i ++) {
+      float angleInc = TWO_PI / ringSegments;
+      float xoff = map(cos(angle) * noiseRadius, -1, 1, 0, 1);
+      float yoff = map(sin(angle) * noiseRadius, -1, 1, 0, 1);
+      radius = map(noise(xoff, yoff, zoff), 0, 1, 1, 140);
+      radius += j * 1.5;
+      float x = radius * cos(angle) + width/2;
+      float y = radius * sin(angle) + height/2;
+      vertex(x, y);
+      angle += angleInc;
+      noiseRadius -= 0.00038;
     }
+    endShape(CLOSE);
+    angle = 0;
+    
   }
-  counter++;
+  noiseRadius = 1;
+  zoff += 0.01;
+  
+  if (isRecording) {
+    saveFrame("Export/rings-####.png");
+  }
 }
 
-void render(float percent) {
-
-  float a = percent * TWO_PI;
-  //for (Particle p : particles) {
-  //  p.render(a);
-  //}
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    isRecording = !isRecording;
+  }
 }
