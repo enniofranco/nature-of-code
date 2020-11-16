@@ -14,7 +14,7 @@ class Stripe {
     angle = _a;
 
     stripeWidMax = _wMax;
-    float nWid = cos(angle);
+    float nWid = sin(angle);
     stripeWid = map(nWid, -1, 1, 0, stripeWidMax);
     stripeHei = _h - 1;
     //stripeHei = _h;
@@ -31,11 +31,11 @@ class Stripe {
     gradientLevel = 60;
     float testAngle = angle % TWO_PI;
 
-    if (testAngle >= 0 && testAngle < PI) {
+    if (testAngle >= PI/2 && testAngle < PI + PI/2) {
       float interAngle = map(angle, 0, PI, 0, 1);
       colour1 = lerpColor(colourA1, colourA2, interAngle);
       colour2 = lerpColor(colourA2, colourA1, interAngle);
-    } else if (testAngle >= PI && testAngle <= TWO_PI) {
+    } else if ((testAngle >= PI+PI/2 && testAngle <= TWO_PI+PI/2) ||(testAngle > 0 && testAngle < PI/2)) {
       float interAngle = map(angle, PI, TWO_PI, 0, 1);
       colour1 = lerpColor(colourB1, colourB2, interAngle);
       colour2 = lerpColor(colourB2, colourB1, interAngle);

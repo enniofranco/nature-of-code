@@ -1,5 +1,6 @@
-//Still doesn't feel like it's rotating
-//But it is a working version
+//I declare this version a failure
+//I don't like the way it looks and I don't feel like it is interesting
+//I will try again with different steps
 int screenW = 1080/2;
 int screenH = 1080/2;
 boolean isRecording;
@@ -38,7 +39,8 @@ void draw() {
 
   for (int i = 0; i < columnQuantity; i++) {
     float n = noise(time, yOff);
-    angle = map(n, 0, 1, 0, TWO_PI);
+    angle = map(n, 0, 1, PI/2, ((TWO_PI*2)+(PI/2)));
+    println(degrees(angle));
 
     stripe = new Stripe(width/2, y, sectionMaxWidth, sectionHeight, angle);
 
