@@ -1,45 +1,55 @@
+//I have abandoned this project
+//I've overcomplicated and have not reached my goal
+//This was meant to be animated
+//I used a test file I worked on before as my final project
+
 int screenW = 1080/2;
 int screenH = 1080/2;
-float radius;
-float noiseInc;
-float noiseRadius;
-float uoff;
-float voff;
+
+int totalFrames = 100;
+int counter = 0;
+boolean record = false;
+
+RingSystem ringSystem;
 
 void settings() {
   size(screenW, screenH, FX2D);
+  //size(screenW, screenH);
   pixelDensity(displayDensity());
 }
 
+
 void setup() {
-  noiseInc = PI/50;
-  uoff = 0;
+  //1. x      //2. y
+  //3. min    //4. max
+  //5. rings  //6. steps in each circle 
+  ringSystem = new RingSystem(width/2, height/2, 10, 100, 150, 90);
 }
 
 void draw() {
-  float utemp = uoff;
   background(255, 239, 10);
   stroke(26, 26, 26, 50);
-  //noFill();
-  noiseRadius = 1;
-  for (float j = 0; j < 120; j++) {
-    if (j == 0) {
-      fill(0, 184, 31);
-    } else {
-      noFill();
-    }
-    beginShape();
-    for (float i = 0; i < TWO_PI; i += noiseInc) {
-      float xoff = map(cos(i), -1, 1, 0, 1);
-      float yoff = map(sin(i), -1, 1, 0, 1);
-      radius = map(noise(xoff, yoff, utemp), 0, 1, 1, 140);
-      radius += j;
-      float x = radius * cos(i) + width/2;
-      float y = radius * sin(i) + height/2;
-      vertex(x, y);
-    }
-    endShape(CLOSE);
-    utemp -= 0.01;
+  noFill();
+  float percent = 0;
+  if (record) {
+    percent = float(counter) / totalFrames;
+  } else {
+    percent = float(counter % totalFrames) / totalFrames;
   }
-  uoff += 0.01;
+  ringSystem.render(percent);
+  if (record) {
+    saveFrame("output/gif-"+nf(counter, 3)+".png");
+    if (counter == totalFrames-1) {
+      exit();
+    }
+  }
+  counter++;
+}
+
+void render(float percent) {
+
+  float a = percent * TWO_PI;
+  //for (Particle p : particles) {
+  //  p.render(a);
+  //}
 }
