@@ -10,7 +10,8 @@ class Node {
 
   Node() {
     angle = 0;
-    velocity = 0.05;
+    velocity = 0;
+    acceleration = 0;
     iniPos = new PVector(width/2, height/2);
     amplitude = new PVector(200, 0);
 
@@ -24,7 +25,9 @@ class Node {
   }
 
   void update() {
+    velocity += acceleration;
     angle += velocity;
+    acceleration = 0;
   }
 
   void render() {
@@ -50,7 +53,7 @@ class Node {
 
 
     float testAngle = angle % TWO_PI;
-    if (testAngle > 0 && testAngle <= PI) {
+    if (testAngle >= 0 && testAngle <= PI) {
       //TOP HALF
       for (int i = 0; i < pos.length; i++) {
         if (i == 0 || i == pos.length-1) {
@@ -72,4 +75,5 @@ class Node {
       }
     }
   }
+
 }
