@@ -1,4 +1,5 @@
 //Waves seem to go always in the same direction
+//Must think of a different way to control it
 Node[] stripe;
 PVector amplitude;
 PVector spacing;
@@ -30,8 +31,10 @@ void draw() {
   background(200);
   for (int i = 0; i < stripes; i++) {
     acceleration = map(noise(t, zoff), 0, 1, -0.001, 0.001);
+    //println("i + = " + acceleration);
     stripe[i].render(acceleration);
-    t += 0.01;
+    t += 0.001;
   }
+  t = 0;
   zoff += 0.01;
 }
