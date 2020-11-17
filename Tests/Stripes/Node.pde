@@ -8,14 +8,14 @@ class Node {
   float nodeSize;
   int nodes;
 
-  Node() {
+  Node(PVector _ini, PVector _amp, int _nod) {
     angle = 0;
     velocity = 0;
     acceleration = 0;
-    iniPos = new PVector(width/2, height/2);
-    amplitude = new PVector(200, 0);
+    iniPos = _ini;
+    amplitude = _amp;
 
-    nodes = 28;
+    nodes = _nod;
     nodeSize = 16;
 
     pos = new PVector[nodes];
@@ -24,13 +24,13 @@ class Node {
     }
   }
 
-  void update() {
-    velocity += acceleration;
+  void render(float _acceleration) {
+    
+    velocity += _acceleration;
+    velocity = constrain(velocity, -0.3, 0.3);
+    println(velocity);
     angle += velocity;
-    acceleration = 0;
-  }
-
-  void render() {
+    _acceleration = 0;
 
     int arrayLast = nodes - 1;
     pos[0].x = cos(angle) * amplitude.x + iniPos.x;
@@ -50,9 +50,17 @@ class Node {
 
     noStroke();
     rectMode(CENTER);
+    
+    float testAngle;
+    
+    if (angle >= 0) {
+      testAngle = angle % TWO_PI;
+    } else {
+      testAngle = TWO_PI + (angle % TWO_PI);
+    }
 
-
-    float testAngle = angle % TWO_PI;
+    //float testAngle = angle % TWO_PI;
+    
     if (testAngle >= 0 && testAngle <= PI) {
       //TOP HALF
       for (int i = 0; i < pos.length; i++) {
