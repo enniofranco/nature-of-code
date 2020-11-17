@@ -28,7 +28,6 @@ class Node {
     
     velocity += _acceleration;
     velocity = constrain(velocity, -0.3, 0.3);
-    println(velocity);
     angle += velocity;
     _acceleration = 0;
 
