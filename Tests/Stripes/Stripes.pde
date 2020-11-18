@@ -31,7 +31,7 @@ void draw() {
   background(200);
   for (int i = 0; i < stripes; i++) {
     acceleration = map(noise(t, zoff), 0, 1, -0.001, 0.001);
-    //println("i + = " + acceleration);
+    println("i" + i + " = " + acceleration);
     stripe[i].render(acceleration);
     t += 0.001;
   }

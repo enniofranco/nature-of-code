@@ -9,7 +9,7 @@ class Node {
   int nodes;
 
   Node(PVector _ini, PVector _amp, int _nod) {
-    angle = 0;
+    angle = 9;
     velocity = 0;
     acceleration = 0;
     iniPos = _ini;
@@ -29,6 +29,7 @@ class Node {
     velocity += _acceleration;
     velocity = constrain(velocity, -0.3, 0.3);
     angle += velocity;
+    //println(angle);
     _acceleration = 0;
 
     int arrayLast = nodes - 1;
