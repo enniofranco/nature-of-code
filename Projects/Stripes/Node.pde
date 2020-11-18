@@ -32,7 +32,7 @@ class Node {
     velocity += acceleration;
     velocity = constrain(velocity, -0.1, 0.1);
     angle += velocity;
-    println(velocity);
+    //println(velocity);
     acceleration = 0;
 
     int arrayLast = nodes - 1;
