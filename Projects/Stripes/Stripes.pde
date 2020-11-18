@@ -1,5 +1,7 @@
-//Waves seem to go always in the same direction
-//Must think of a different way to control it
+int screenW = 1080/2;
+int screenH = 1080/2;
+boolean isRecording;
+
 Node[] stripe;
 PVector amplitude;
 PVector spacing;
@@ -8,9 +10,13 @@ int stripes;
 float acceleration;
 float t;
 
+void settings() {
+  size(screenW, screenH);
+  pixelDensity(displayDensity());
+  isRecording = false;
+}
+
 void setup() {
-  size(600, 600, FX2D);
-  //frameRate(30);
   t = 0;
   spacing = new PVector(0, 150);
   amplitude = new PVector(120, 50);
@@ -30,15 +36,24 @@ void draw() {
   for (int i = 0; i < stripes; i++) {
     stripe[i].render();
   }
+
+  if (isRecording) {
+    saveFrame("Export/stripes-####.png");
+  }
 }
 
 void keyPressed() {
+
+  if (key == 'r' || key == 'R') {
+    isRecording = !isRecording;
+  }
+
   if (key == '1') {
     t = 5;
     for (int i = 0; i < stripes; i++) {
       acceleration = map(noise(t), 0, 1, 0, 0.002);
       stripe[i].setAcceleration(acceleration);
-      t += 0.02;
+      t += 0.01;
     }
     t = 5;
   } else if (key == '2') {
@@ -46,7 +61,7 @@ void keyPressed() {
     for (int i = 0; i < stripes; i++) {
       acceleration = map(noise(t), 0, 1, 0, -0.002);
       stripe[i].setAcceleration(acceleration);
-      t += 0.02;
+      t += 0.01;
     }
     t = 5.001;
   }
