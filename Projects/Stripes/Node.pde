@@ -68,9 +68,9 @@ class Node {
       //TOP HALF
       for (int i = 0; i < pos.length; i++) {
         if (i == 0 || i == pos.length-1) {
-          fill(0, 200);
+          fill(245, 245, 238);
         } else {
-          fill(255, 255, 20, 200);
+          fill(255, 100, 10, 200);
         }
         rect(pos[i].x, pos[i].y, nodeSize, nodeSize);
       }
@@ -78,9 +78,9 @@ class Node {
       //BOTTOM HALF
       for (int i = arrayLast; i >= 0; i--) {
         if (i == 0 || i == pos.length-1) {
-          fill(0, 200);
+          fill(245, 245, 238);
         } else {
-          fill(255, 255, 20, 200);
+          fill(255, 100, 10, 200);
         }
         rect(pos[i].x, pos[i].y, nodeSize, nodeSize);
       }

@@ -13,7 +13,7 @@ void setup() {
   //frameRate(30);
   t = 0;
   spacing = new PVector(0, 150);
-  amplitude = new PVector(100, 50);
+  amplitude = new PVector(120, 50);
   nodes = 16;
   stripes = 38;
   acceleration = 0;
@@ -26,7 +26,7 @@ void setup() {
 }
 
 void draw() {
-  background(200);
+  background(245, 245, 238);
   for (int i = 0; i < stripes; i++) {
     stripe[i].render();
   }
