@@ -4,7 +4,7 @@ class Particle {
   PVector acc;
   float lifespan;
   
-  float mass = 1;
+  float mass = random(1.5, 3);
   
   Particle(PVector p) {
     acc = new PVector(0, 0);
@@ -28,13 +28,14 @@ class Particle {
     vel.add(acc);
     pos.add(vel);
     acc.mult(0);
-    lifespan -= 2;
+    lifespan -= 3;
+    vel.limit(10);
   }
   
   void display() {
     noStroke();
     fill(127, lifespan);
-    ellipse(pos.x, pos.y, 12, 12);
+    ellipse(pos.x, pos.y, 5*mass, 5*mass);
   }
   
   boolean isDead() {

@@ -1,19 +1,25 @@
 class ParticleSystem {
   ArrayList<Particle> particles;
-  PVector origin;
+  PVector acc;
+  PVector vel;
+  PVector pos;
+  float mass;
   
-  ParticleSystem(PVector pos) {
-    origin = pos.copy();
+  ParticleSystem() {
     particles = new ArrayList<Particle>();
+    mass = 4;
+    pos = new PVector(random(width), random(height));
+    vel = new PVector(0, 0);
+    acc = new PVector(0, 0);
   }
   
   void addParticle() {
-    particles.add(new Particle(origin));
+    particles.add(new Particle(pos));
   }
   
-  void applyForce(PVector f) {
+  void applyForce(PVector _f) {
     for (Particle p : particles) {
-      p.applyForce(f);
+      p.applyForce(_f);
     }
   }
   
@@ -22,6 +28,14 @@ class ParticleSystem {
       PVector force = a.attract(p);
       p.applyForce(force);
     }
+    PVector force = a.attractSystem(pos, mass);
+    force.div(mass);
+    acc.add(force);
+    vel.add(acc);
+    pos.add(vel);
+    acc.mult(0);
+    vel.limit(15);
+    a.step();
   }
   
   void render() {
@@ -32,5 +46,7 @@ class ParticleSystem {
         particles.remove(i);
       }
     }
+    //fill(0);
+    //ellipse(pos.x, pos.y, 50, 50);
   }
 }

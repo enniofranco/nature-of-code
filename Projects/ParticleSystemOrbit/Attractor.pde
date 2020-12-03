@@ -3,10 +3,15 @@ class Attractor {
   float G = 100;
   
   PVector pos;
-  float r = 10;
+  float tx, ty;
+  //float r = 10;
+  float mass;
   
   Attractor(float x, float y) {
+    mass = 4;
     pos = new PVector(x,y);
+    tx = 0;
+    ty = 10000;
   }
   
   void display() {
@@ -19,9 +24,28 @@ class Attractor {
     PVector dir = PVector.sub(pos, p.pos);
     float d = dir.mag();
     dir.normalize();
-    d = constrain(d, 5, 100);
-    float force = G / (d * d);
+    d = constrain(d, 5, 25);
+    float force = G * mass * p.mass / (d * d);
+    //float force = G / (d * d);
     dir.mult(force);
     return dir;
+  }
+  
+  PVector attractSystem(PVector _pos, float _mass) {
+    PVector dir = PVector.sub(pos, _pos);
+    float d = dir.mag();
+    dir.normalize();
+    d = constrain(d, 5, 25);
+    float force = G * mass * _mass / (d * d);
+    //float force = G / (d * d);
+    dir.mult(force);
+    return dir;
+  }
+  
+  void step() {
+    pos.x = map(noise(tx), 0, 1, 0, width);
+    pos.y = map(noise(ty), 0, 1, 0, height);
+    tx += 0.01;
+    ty += 0.01;
   }
 }
