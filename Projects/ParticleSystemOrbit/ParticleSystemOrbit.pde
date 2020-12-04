@@ -8,7 +8,7 @@ void setup() {
 }
 
 void draw() {
-  background(255);
+  background(245, 245, 238);
   
   ps.addParticle();
   

@@ -7,7 +7,7 @@ class ParticleSystem {
   
   ParticleSystem() {
     particles = new ArrayList<Particle>();
-    mass = 4;
+    mass = 1;
     pos = new PVector(random(width), random(height));
     vel = new PVector(0, 0);
     acc = new PVector(0, 0);

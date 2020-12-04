@@ -3,6 +3,7 @@ class Particle {
   PVector vel;
   PVector acc;
   float lifespan;
+  color particleColour;
   
   float mass = random(1.5, 3);
   
@@ -11,6 +12,12 @@ class Particle {
     vel = new PVector(random(-1,1), random(-2,1));
     pos = p.copy();
     lifespan = 255.0;
+    float num = random(100);
+    if (num < 1) {
+      particleColour = color(255, 10, 79);
+    } else {
+      particleColour = color(26, 26, 26);
+    }
   }
   
   void run() {
@@ -34,8 +41,8 @@ class Particle {
   
   void display() {
     noStroke();
-    fill(127, lifespan);
-    ellipse(pos.x, pos.y, 5*mass, 5*mass);
+    fill(particleColour, lifespan);
+    ellipse(pos.x, pos.y, 6*mass, 6*mass);
   }
   
   boolean isDead() {

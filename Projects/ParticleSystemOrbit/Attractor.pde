@@ -8,7 +8,7 @@ class Attractor {
   float mass;
   
   Attractor(float x, float y) {
-    mass = 4;
+    mass = 3;
     pos = new PVector(x,y);
     tx = 0;
     ty = 10000;
@@ -16,15 +16,15 @@ class Attractor {
   
   void display() {
     noStroke();
-    fill(175);
-    ellipse(pos.x, pos.y, 48, 48);
+    fill(255, 100, 10);
+    ellipse(pos.x, pos.y, 52, 52);
   }
   
   PVector attract(Particle p) {
     PVector dir = PVector.sub(pos, p.pos);
     float d = dir.mag();
     dir.normalize();
-    d = constrain(d, 5, 25);
+    d = constrain(d, 5, 50);
     float force = G * mass * p.mass / (d * d);
     //float force = G / (d * d);
     dir.mult(force);
@@ -45,7 +45,7 @@ class Attractor {
   void step() {
     pos.x = map(noise(tx), 0, 1, 0, width);
     pos.y = map(noise(ty), 0, 1, 0, height);
-    tx += 0.01;
-    ty += 0.01;
+    tx += 0.008;
+    ty += 0.008;
   }
 }
