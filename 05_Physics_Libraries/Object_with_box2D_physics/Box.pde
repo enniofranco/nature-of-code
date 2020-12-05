@@ -2,14 +2,26 @@ class Box {
   
   Body body;
   
+  color colour;
+  
   float x, y;
   float w, h;
   
   Box(float _x, float _y) {
     x = _x;
     y = _y;
-    w = 16;
-    h = 16;
+    w = random(4, 24);
+    h = random(4, 24);
+    
+    float num = random(100);
+    
+    if (num < 2) {
+      colour = color(255, 10, 79);
+    } else if (num < 3) {
+      colour = color(255, 239, 10);
+    } else {
+      colour = color(0, 184, 31);
+    }
     
     // Step 1: Define body
     BodyDef bd = new BodyDef();
@@ -29,7 +41,7 @@ class Box {
     FixtureDef fd = new FixtureDef();
     fd.shape = ps;
     // Parameters that affect physics
-    fd.density = 1;
+    fd.density = random(1, 3);
     fd.friction = 0.3;
     fd.restitution = 0.5;
     
@@ -50,7 +62,7 @@ class Box {
     translate(pos.x, pos.y);
     //Box2D space is inverted, then invert angle
     rotate(-a);
-    fill(100);
+    fill(colour);
     noStroke();
     rectMode(CENTER);
     rect(0,0,w,h);

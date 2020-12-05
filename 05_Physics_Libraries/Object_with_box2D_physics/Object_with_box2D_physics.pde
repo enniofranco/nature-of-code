@@ -38,7 +38,7 @@ void setup() {
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
   
-  boxesArraySize = 400;
+  boxesArraySize = 300;
   boxes = new ArrayList<Box>();
   for (int i = 0; i < boxesArraySize; i++) {
     float x = random(270, width-270);
@@ -48,7 +48,11 @@ void setup() {
 }
 
 void draw() {
-  background(200);
+  background(4, 28, 224);
+  
+  strokeWeight(2);
+  stroke(0, 180);
+  line(width/2, 50, width/2, height-50);
   
   box2d.step();
   for (int i = 0; i < boxesArraySize; i++) {
@@ -56,4 +60,5 @@ void draw() {
     b.update();
     b.render();
   }
+  
 }
