@@ -11,24 +11,24 @@
 //
 //5 - Put it all together
 
-ArrayList<Object> objects;
-int objectsArraySize;
+ArrayList<Box> boxes;
+int boxesArraySize;
 
 void setup() {
   size(600, 600);
-  objectsArraySize = 10;
-  objects = new ArrayList<Object>();
-  for (int i = 0; i < objectsArraySize; i++) {
+  boxesArraySize = 10;
+  boxes = new ArrayList<Box>();
+  for (int i = 0; i < boxesArraySize; i++) {
     PVector v = new PVector(random(width), random(height));
-    objects.add(new Object(v, random(16, 32)));
+    boxes.add(new Box(v, random(16, 32)));
   }
 }
 
 void draw() {
   background(200);
-  for (int i = 0; i < objectsArraySize; i++) {
-    Object o = objects.get(i);
-    o.update();
-    o.render();
+  for (int i = 0; i < boxesArraySize; i++) {
+    Box b = boxes.get(i);
+    b.update();
+    b.render();
   }
 }
