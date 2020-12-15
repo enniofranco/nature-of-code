@@ -1,5 +1,6 @@
 int screenW = 1080/2;
 int screenH = 1080/2;
+boolean isRecording;
 
 MCQBColours mcqbColours;
 Steps stepsA;
@@ -14,6 +15,8 @@ void settings() {
   pixelDensity(displayDensity());
 }
 void setup() {
+  isRecording = false;
+  
   mcqbColours = new MCQBColours();
   stepsA = new Steps(13);
   stepsB = new Steps(7);
@@ -50,4 +53,13 @@ void draw() {
     movers[i].render();
   }
   
+  if (isRecording) {
+    saveFrame("Export/frame-####.png");
+  }
+}
+
+void keyPressed() {
+  if (key == 'r' || key == 'R') {
+    isRecording = !isRecording;
+  }
 }

@@ -34,8 +34,8 @@ class Attractor {
   void render() {
     noStroke();
     if (dragging) fill (mcqbColours.cBlac);
-    else if (rollover) fill(0, 100);
-    else fill(0, 180);
+    else if (rollover) fill(mcqbColours.cBlac);
+    else fill(mcqbColours.cBlac);
     
     ellipse(pos.x, pos.y, mass * 2, mass * 2);
   }
