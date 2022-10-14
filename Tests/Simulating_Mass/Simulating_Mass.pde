@@ -1,19 +1,28 @@
-Mover judite;
+Mover[] caralhas;
 
 void setup() {
   size(640, 640);
   pixelDensity(displayDensity());
-  judite = new Mover();
+  caralhas = new Mover[5];
+  for (int i = 0; i < caralhas.length; i++) {
+    caralhas[i] = new Mover();
+  }
 }
 
 void draw() {
   background(230);
-  
-  PVector gravity = new PVector(0, 0.1);
-  judite.applyForce(gravity);
-  PVector wind = new PVector(random(-0.1, 0.1), 0);
-  judite.applyForce(wind);
-  judite.update();
-  judite.checkEdges();
-  judite.render();
+
+  for (Mover m : caralhas) {
+
+    PVector gravity = new PVector(0, 0.1);
+    m.applyForce(gravity);
+    gravity.mult(m.mass); //a little cheat to make gravity work
+    
+    PVector wind = new PVector(random(-0.1, 0.1), 0);
+    m.applyForce(wind);
+    
+    m.update();
+    m.checkEdges();
+    m.render();
+  }
 }

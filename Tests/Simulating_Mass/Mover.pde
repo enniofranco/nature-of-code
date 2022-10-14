@@ -8,7 +8,7 @@ class Mover {
   float itemSize;
 
   Mover() {
-    mass = 2;
+    mass = random(1 ,5);
     itemSize = 8 * mass;
     float randomX = random(0, width);
     float randomY = random(0, width);
