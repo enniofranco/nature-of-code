@@ -11,8 +11,8 @@ class Mover {
     mass = random(1 ,5);
     itemSize = 8 * mass;
     float randomX = random(0, width);
-    float randomY = random(0, width);
-    //float randomY = height - 20;
+    //float randomY = random(0, width);
+    float randomY = height/2;
     loc = new PVector(randomX, randomY);
     vel = new PVector(0, 0);
     acc = new PVector(0, 0);
@@ -41,8 +41,23 @@ class Mover {
     float topEdge = 0 + itemSize/2;
     float rightEdge = width - itemSize/2;
     float leftEdge = 0 + itemSize/2;
-    if(loc.y > bottomEdge) {
-      loc.y = bottomEdge;
+    
+    /* Because items have different heights,
+    it will make them bounce at different moments,
+    and they won't fall at the same time after the first time.
+    To compare, it's better to use the if below*/
+    //if(loc.y > bottomEdge) {
+    //  loc.y = bottomEdge;
+    //  vel.y *= -1;
+    //} else if (loc.x > rightEdge) {
+    //  loc.x = rightEdge;
+    //  vel.x *= -1;
+    //} else if (loc.x < leftEdge) {
+    //  loc.x = leftEdge;
+    //  vel.x *= -1;
+    //}
+    if(loc.y > height) {
+      loc.y = height;
       vel.y *= -1;
     } else if (loc.x > rightEdge) {
       loc.x = rightEdge;

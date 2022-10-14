@@ -14,11 +14,11 @@ void draw() {
 
   for (Mover m : caralhas) {
 
-    PVector gravity = new PVector(0, 0.1);
-    m.applyForce(gravity);
+    PVector gravity = new PVector(0, 0.2);
     gravity.mult(m.mass); //a little cheat to make gravity work
+    m.applyForce(gravity);
     
-    PVector wind = new PVector(random(-0.1, 0.1), 0);
+    PVector wind = new PVector(0.2, 0);
     m.applyForce(wind);
     
     m.update();
