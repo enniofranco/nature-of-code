@@ -9,7 +9,7 @@ class Line {
   Line(float _x) {
     x = _x;
     itemSize = 2;
-    itemsPerLine = 30;
+    itemsPerLine = 35;
     y = new float[itemsPerLine];
   }
 
