@@ -6,10 +6,8 @@ class Line {
   float itemSize;
   int itemsPerLine;
 
-  Line(float _x, float _standardDeviation, float _mean) {
+  Line(float _x) {
     x = _x;
-    standardDeviation = _standardDeviation;
-    mean = _mean;
     itemSize = 2;
     itemsPerLine = 30;
     y = new float[itemsPerLine];
@@ -28,5 +26,13 @@ class Line {
     for (int i = 0; i < itemsPerLine; i++) {
       ellipse(x, y[i], itemSize, itemSize);
     }
+  }
+  
+  void setMean(float _mean) {
+    mean = _mean;
+  }
+  
+  void setStandardDeviation(float _standardDeviation) {
+    standardDeviation = _standardDeviation;
   }
 }

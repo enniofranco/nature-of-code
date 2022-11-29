@@ -9,34 +9,30 @@ class Wave {
 
   Wave() {
     x = 0;
-    xInc = 1;
+    xInc = 2;
     standardDeviationOff = random(10);
-    float tempStandardDeviationOff = standardDeviationOff;
     meanOff = random(10);
-    float tempMeanOff = meanOff;
-    lines = new Line[800];
+    lines = new Line[400];
     for (int i = 0; i < lines.length; i++) {
-      standardDeviation = map(noise(tempStandardDeviationOff), 0, 1, 1, 100);
-      mean = map(noise(tempMeanOff), 0, 1, -300, height+300);
-      lines[i] = new Line(x, standardDeviation, mean);
+      lines[i] = new Line(x);
       x += xInc;
-      tempMeanOff += 0.001;
-      tempStandardDeviationOff += 0.01;
     }
   }
 
   void calculate() {
-    meanOff += 0.01;
     float tempMeanOff = meanOff;
-    standardDeviationOff += 0.05;
     float tempStandardDeviationOff = standardDeviationOff;
     for (int i = 0; i < lines.length; i++) {
+      standardDeviation = map(noise(tempStandardDeviationOff), 0, 1, 1, 100);
+      mean = map(noise(tempMeanOff), 0, 1, -300, height+300);
+      lines[i].setStandardDeviation(standardDeviation);
+      lines[i].setMean(mean);
       lines[i].calculate();
-      lines[i].mean = map(noise(tempMeanOff), 0, 1, -300, height+300);
       tempMeanOff += 0.001;
-      lines[i].standardDeviation = map(noise(tempStandardDeviationOff), 0, 1, 1, 120);
-      tempStandardDeviationOff += 0.015;
+      tempStandardDeviationOff += 0.02;
     }
+    meanOff += 0.01;
+    standardDeviationOff += 0.05;
   }
 
   void render() {
