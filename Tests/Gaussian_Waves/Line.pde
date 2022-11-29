@@ -22,7 +22,8 @@ class Line {
 
   void render() {
     noStroke();
-    fill(200, 50);
+    color itemColor = #F5F5EE;
+    fill(itemColor, 50);
     for (int i = 0; i < itemsPerLine; i++) {
       ellipse(x, y[i], itemSize, itemSize);
     }

@@ -1,4 +1,5 @@
 Wave[] waves;
+color bgColor;
 
 void setup() {
   size(800, 800);
@@ -8,10 +9,11 @@ void setup() {
   for (int i = 0; i < waves.length; i++) {
     waves[i] = new Wave();
   }
+  bgColor = #1A1A1A;
 }
 
 void draw() {
-  background(50);
+  background(bgColor);
   for (int i = 0; i < waves.length; i++) {
     waves[i].calculate();
     waves[i].render();
